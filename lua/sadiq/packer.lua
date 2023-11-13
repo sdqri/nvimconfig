@@ -8,20 +8,20 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- My packages:
-	-- For tabs you know!
+    -- For tabs you know!
     -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
     use('nvim-tree/nvim-web-devicons') -- OPTIONAL: for file icons
-    use('lewis6991/gitsigns.nvim') -- OPTIONAL: for git status
+    use('lewis6991/gitsigns.nvim')     -- OPTIONAL: for git status
     use('romgrk/barbar.nvim')
 
     -- todos
     use {
-    "folke/todo-comments.nvim",
-    requires = {{"nvim-lua/plenary.nvim"}}
+        "folke/todo-comments.nvim",
+        requires = { { "nvim-lua/plenary.nvim" } }
     }
 
     -- nvimtree
-    use{'nvim-tree/nvim-tree.lua'}
+    use { 'nvim-tree/nvim-tree.lua' }
 
     -- Color scheme
     use({ 'rose-pine/neovim', as = 'rose-pine' })
@@ -29,53 +29,47 @@ return require('packer').startup(function(use)
     vim.cmd('colorscheme rose-pine')
 
     -- treesitter
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
-    -- undotree 
+    -- undotree
     use('mbbill/undotree')
 
     -- lsp-zero
     use {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v1.x',
-      requires = {
-          -- LSP Supportresponse
-          {'neovim/nvim-lspconfig'},
-          {'williamboman/mason.nvim'},
-          {'williamboman/mason-lspconfig.nvim'},
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        requires = {
+            --- Uncomment these if you want to manage LSP servers from neovim
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
-          -- Autocompletion
-          {'hrsh7th/nvim-cmp'},
-          {'hrsh7th/cmp-buffer'},
-          {'hrsh7th/cmp-path'},
-          {'saadparwaiz1/cmp_luasnip'},
-          {'hrsh7th/cmp-nvim-lsp'},
-          {'hrsh7th/cmp-nvim-lua'},
-
-          -- Snippets
-          {'L3MON4D3/LuaSnip'},
-          {'rafamadriz/friendly-snippets'},
-      }
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
+        }
     }
 
     -- pretty daignostics
     use({
-      "folke/trouble.nvim",
-      config = function()
-          require("trouble").setup {
-              icons = false,
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
-          }
-      end
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup {
+                icons = false,
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     })
 
     -- testing for golang
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua' -- recommended if need floating window support
 
-    -- comments 
+    -- comments
     use 'terrortylor/nvim-comment'
 
     -- multi-cursor
@@ -83,19 +77,18 @@ return require('packer').startup(function(use)
 
     -- live grep for telescope
     use {
-      "nvim-telescope/telescope.nvim",
-      requires = {
-        { "nvim-telescope/telescope-live-grep-args.nvim" },
-      },
-      config = function()
-        require("telescope").load_extension("live_grep_args")
-      end
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            { "nvim-telescope/telescope-live-grep-args.nvim" },
+        },
+        config = function()
+            require("telescope").load_extension("live_grep_args")
+        end
     }
 
     -- folding
-    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
     -- funs:
     use("eandrju/cellular-automaton.nvim")
-
 end)
