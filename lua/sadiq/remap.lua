@@ -7,7 +7,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- replace current word 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("v", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- source current file
 vim.keymap.set("n", "<leader><leader>", function()
@@ -37,3 +37,6 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 -- ?
 vim.keymap.set("n", "Q", "<nop>")
+
+-- open window in new tab (zoom)
+vim.keymap.set("n", '<leader>z', '<cmd>tabedit %<CR>')
