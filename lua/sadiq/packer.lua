@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
     -- For tabs you know!
     -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
     use('nvim-tree/nvim-web-devicons') -- OPTIONAL: for file icons
-    use('lewis6991/gitsigns.nvim')     -- OPTIONAL: for git status
+    use('lewis6991/gitsigns.nvim')  -- OPTIONAL: for git status
     use('romgrk/barbar.nvim')
 
     -- todos
@@ -24,9 +24,9 @@ return require('packer').startup(function(use)
     use { 'nvim-tree/nvim-tree.lua' }
 
     -- Color scheme
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
-
-    vim.cmd('colorscheme rose-pine')
+    use "rebelot/kanagawa.nvim"
+    -- use({ 'rose-pine/neovim', as = 'rose-pine' })
+    -- vim.cmd('colorscheme rose-pine')
 
     -- treesitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -89,6 +89,18 @@ return require('packer').startup(function(use)
     -- folding
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
-    -- funs:
-    use("eandrju/cellular-automaton.nvim")
+    use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
+
+    use 'folke/neodev.nvim'
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui",
+        requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
+    use 'leoluz/nvim-dap-go'
+
+
 end)
