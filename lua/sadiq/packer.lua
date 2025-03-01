@@ -11,7 +11,6 @@ return require("packer").startup(function(use)
 	-- For tabs you know!
 	-- These optional plugins should be loaded directly because of a bug in Packer lazy loading
 	use("nvim-tree/nvim-web-devicons") -- OPTIONAL: for file icons
-	use("lewis6991/gitsigns.nvim") -- OPTIONAL: for git status
 	use("romgrk/barbar.nvim")
 
 	-- todos
@@ -53,17 +52,11 @@ return require("packer").startup(function(use)
 	})
 
 	-- pretty daignostics
-	use({
-		"folke/trouble.nvim",
-		config = function()
-			require("trouble").setup({
-				icons = false,
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+	-- use({
+	-- 	"folke/trouble.nvim",
+	-- 	opts = {}, -- Default options (refer to the plugin documentation for customization)
+	-- 	cmd = "Trouble",
+	-- })
 
 	-- testing for golang
 	use("ray-x/go.nvim")
@@ -101,5 +94,9 @@ return require("packer").startup(function(use)
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 	use("leoluz/nvim-dap-go")
 
-	use("stevearc/conform.nvim")
+	-- use("stevearc/conform.nvim")
+
+	use("lewis6991/gitsigns.nvim")
+
+	use("tpope/vim-fugitive")
 end)
