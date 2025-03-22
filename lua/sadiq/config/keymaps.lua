@@ -1,5 +1,3 @@
-print("keymaps")
-
 -- Space as leader key
 vim.g.mapleader = " "
 
@@ -14,7 +12,7 @@ vim.keymap.set("v", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- source current file
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end)
 
 -- moving
@@ -35,7 +33,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- ?
+-- Disable the default behavior of Q in normal mode (Ex mode)
 vim.keymap.set("n", "Q", "<nop>")
 
 -- open window in new tab (zoom)
