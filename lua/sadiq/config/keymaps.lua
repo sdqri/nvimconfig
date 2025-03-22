@@ -1,3 +1,6 @@
+print("keymaps")
+
+-- Space as leader key
 vim.g.mapleader = " "
 
 -- remove into blackhole register
@@ -31,9 +34,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- center cursor when scrolling
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
--- delete without clipboard
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- ?
 vim.keymap.set("n", "Q", "<nop>")

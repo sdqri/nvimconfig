@@ -1,10 +1,11 @@
--- Default options:
-require('kanagawa').setup({
+local Plugin = {'rebelot/kanagawa.nvim'}
+
+Plugin.opts = {
     compile = false,             -- enable compiling the colorscheme
     undercurl = true,            -- enable undercurls
     commentStyle = { italic = true },
     functionStyle = {},
-    keywordStyle = { italic = true},
+    keywordStyle = { italic = true },
     statementStyle = { bold = true },
     typeStyle = {},
     transparent = false,         -- do not set background color
@@ -22,8 +23,11 @@ require('kanagawa').setup({
         dark = "wave",           -- try "dragon" !
         light = "lotus"
     },
-})
+}
 
--- setup must be called before loading
-vim.cmd("colorscheme kanagawa")
+function Plugin.config(_, opts)
+    require('kanagawa').setup(opts)
+    vim.cmd("colorscheme kanagawa")
+end
 
+return Plugin

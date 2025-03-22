@@ -1,1 +1,1 @@
-require("sadiq")
+require("sadiq.config")
