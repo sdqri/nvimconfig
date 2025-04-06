@@ -21,6 +21,9 @@ Plugin.dependencies = {
     -- Snippet engine
     { "L3MON4D3/LuaSnip" },
     { "saadparwaiz1/cmp_luasnip" },
+
+    -- supermaven
+    { "supermaven-inc/supermaven-nvim" },
 }
 
 Plugin.event = "InsertEnter" -- defines the event that triggers the loading of a plugin
@@ -43,6 +46,7 @@ function Plugin.config()
             { name = "buffer", keyword_length = 3 },
             { name = "luasnip", keyword_length = 2 },
             { name = "lazydev" },
+            { name = "supermaven" },
         },
         window = {
             completion = cmp.config.window.bordered(),
