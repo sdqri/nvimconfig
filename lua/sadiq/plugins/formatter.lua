@@ -5,6 +5,7 @@ Plugin.event = { "BufReadPre", "BufNewFile" }
 Plugin.opts = {
     formatters_by_ft = {
         lua = { "stylua" },
+        go = { "gofmt" },
     },
     format_on_save = {
         lsp_format = "fallback",
