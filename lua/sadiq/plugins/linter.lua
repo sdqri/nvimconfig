@@ -29,7 +29,7 @@ function Plugin.config(_, opts)
     end, { desc = "Trigger linting for current file" })
 
     -- 👇 I added this for detecting which linter current buffer uses
-    vim.api.nvim_create_user_command("ShowLinter", function()
+    vim.api.nvim_create_user_command("LintInfo", function()
         local ft = vim.bo.filetype
         local linters = lint.linters_by_ft[ft]
         if linters then
@@ -37,6 +37,28 @@ function Plugin.config(_, opts)
         else
             print("No linter configured for filetype: " .. ft)
         end
+    end, {})
+
+    vim.api.nvim_create_user_command("LintJabba", function()
+        local tmpfile = "~/src/jabba/tmp.ts"
+
+        -- Save the current buffer to a temporary file
+        vim.cmd("w! " .. tmpfile)
+
+        -- Run eslint --fix on the temporary file
+        vim.fn.system("cd ~/src/jabba && npx eslint ./tmp.ts --fix")
+
+        -- Read the fixed content
+        local fixed = vim.fn.readfile(vim.fn.expand(tmpfile))
+
+        -- Replace current buffer content with fixed content
+        vim.api.nvim_buf_set_lines(0, 0, -1, false, fixed)
+
+        -- Optionally, reapply cursor position or reformat view
+        vim.cmd("normal! gg=G")
+
+        -- Remove the temporary file
+        vim.fn.system("rm " .. tmpfile)
     end, {})
 end
 
