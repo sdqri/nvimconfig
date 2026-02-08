@@ -1,5 +1,2 @@
-std = {
-    globals = {
-        "vim",
-    },
-}
+std = "luajit+busted"
+globals = { "vim" }
