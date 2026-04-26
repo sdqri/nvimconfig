@@ -6,17 +6,7 @@ Plugin.dependencies = {
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
-    -- Add lazydev.nvim as a dependency
-    {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-            library = {
-                -- Load luvit types when the `vim.uv` word is found
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            },
-        },
-    },
+    -- lazydev.nvim configured separately in plugins/lazydev.lua
 
     -- Snippet engine
     { "L3MON4D3/LuaSnip" },
