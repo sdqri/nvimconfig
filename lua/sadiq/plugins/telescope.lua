@@ -15,7 +15,7 @@ Plugin.keys = {
   { "<leader>fg", function() require("telescope").extensions.live_grep_args.live_grep_args() end, desc = "Live Grep Args" },
   { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Find Buffers" },
   { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Find Help Tags" },
+  { "<leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Find Keymaps (Cheatsheet)" },
 }
 
 return Plugin
-
