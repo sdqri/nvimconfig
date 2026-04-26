@@ -1,5 +1,6 @@
 local Plugin = {
     "github/copilot.vim",
+    enabled = false, -- disable to prevent conflicts with Supermaven
 }
 
 function Plugin.config()

@@ -2,7 +2,8 @@ local Plugin = { "supermaven-inc/supermaven-nvim" }
 
 Plugin.opts = {
     keymaps = {
-        accept_suggestion = "<Tab>",
+        -- Avoid <Tab> to prevent conflicts with indentation/snippets/cmp
+        accept_suggestion = "<C-;>",
         clear_suggestion = "<C-]>",
         accept_word = "<C-j>",
     },
