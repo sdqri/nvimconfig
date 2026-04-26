@@ -27,7 +27,4 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 --vim.opt.colorcolumn = "80"
-
--- These are for folding right
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- Folding is managed by ufo.nvim; avoid forcing foldmethod/foldexpr here
